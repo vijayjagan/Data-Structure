@@ -3,8 +3,7 @@ package dynamicprogramming.arrays;
 import java.util.Arrays;
 
 public class MinimumCostForTicket {
-
-
+  
   /**
    * Start from index 0 try out all the possibilities For an instance, we start at index 0
    * <p>
