@@ -105,8 +105,8 @@ public class DungeonGame {
     // *RightCell* - current[row][column] = x, this is what we're done in below
     int minHealthRequired = Math.min(IfWeGoRight, IfWeGoDown) - dungeon[row][column];
 
-    /// If this is a powerUp cell aka value is positive minimum value of 1 is enougth in order to survey in this cell
-    // and gain the powerup to perform next set of row either
+    /// If this is a powerUp cell aka value is positive minimum value of 1 is enough in order to survey in this cell
+    // and gain the powerUp to perform next set of row either
     return dp[row][column] = (minHealthRequired <= 0) ? 1 : minHealthRequired;
   }
 

@@ -1,4 +1,4 @@
-package tree.traversal;
+package tree;
 
 public class TreeNode {
 
@@ -6,11 +6,11 @@ public class TreeNode {
    * Definition for a binary tree node.
    **/
 
-  int val;
-  TreeNode left;
-  TreeNode right;
+  public int val;
+  public TreeNode left;
+  public TreeNode right;
 
-  int number;
+  public int number;
 
   TreeNode() {
   }

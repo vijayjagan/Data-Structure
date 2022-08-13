@@ -1,9 +1,9 @@
 package tree.traversal;
 
-import apple.laf.JRSUIUtils.Tree;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
+import tree.TreeNode;
 
 public class InOrder {
 

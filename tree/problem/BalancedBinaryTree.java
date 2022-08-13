@@ -1,4 +1,6 @@
-package tree.traversal;
+package tree.problem;
+
+import tree.TreeNode;
 
 public class BalancedBinaryTree {
 
