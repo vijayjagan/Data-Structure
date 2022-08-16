@@ -3,14 +3,14 @@ package tree.traversal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-import tree.TreeNode;
+import tree.Node;
 
 public class InOrder {
 
-  public List<Integer> inorderTraversal(TreeNode root) {
+  public List<Integer> inorderTraversal(Node root) {
     List<Integer> inOrder = new ArrayList<>();
-    Stack<TreeNode> implicitStack = new Stack<>();
-    TreeNode currentNode = root;
+    Stack<Node> implicitStack = new Stack<>();
+    Node currentNode = root;
     while (currentNode != null || !implicitStack.isEmpty()) {
       while (currentNode != null) {
         implicitStack.add(currentNode);

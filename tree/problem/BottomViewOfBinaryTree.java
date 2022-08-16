@@ -5,29 +5,28 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
 import java.util.TreeMap;
-import tree.TreeNode;
-import tree.problem.TopViewOfBinaryTree.Pair;
+import tree.Node;
 
 public class BottomViewOfBinaryTree {
 
    class Pair {
 
-    TreeNode node;
+    Node node;
     int xAxis;
 
-    public Pair(TreeNode node, int xAxis) {
+    public Pair(Node node, int xAxis) {
       this.node = node;
       this.xAxis = xAxis;
     }
   }
 
-  public ArrayList<Integer> bottomView(TreeNode root) {
+  public ArrayList<Integer> bottomView(Node root) {
     Queue<Pair> levelOrder = new LinkedList<>();
     levelOrder.offer(new Pair(root, 0));
     Map<Integer, Integer> cacheTraversal = new TreeMap<>();
     while (!levelOrder.isEmpty()) {
       Pair pair = levelOrder.poll();
-      TreeNode node = pair.node;
+      Node node = pair.node;
       if (node.left != null) {
         int xAxis = pair.xAxis - 1;
         levelOrder.offer(new Pair(node.left, xAxis));

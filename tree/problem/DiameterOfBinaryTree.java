@@ -1,6 +1,6 @@
 package tree.problem;
 
-import tree.TreeNode;
+import tree.Node;
 
 public class DiameterOfBinaryTree {
 
@@ -14,7 +14,7 @@ public class DiameterOfBinaryTree {
     int value;
   }
 
-  static int diameterOfBinaryTree(TreeNode root, int maxHeight, WrapInt refInt) {
+  static int diameterOfBinaryTree(Node root, int maxHeight, WrapInt refInt) {
     if (root == null) {
       return 0;
     }
@@ -24,7 +24,7 @@ public class DiameterOfBinaryTree {
     return 1 + Math.max(left, right);
   }
 
-  public int diameterOfBinaryTree(TreeNode root) {
+  public int diameterOfBinaryTree(Node root) {
     WrapInt wrapInt = new WrapInt();
     diameterOfBinaryTree(root, 0, wrapInt);
     return wrapInt.value;

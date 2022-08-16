@@ -1,10 +1,10 @@
 package tree.problem;
 
-import tree.TreeNode;
+import tree.Node;
 
 public class SameTree {
 
-  public boolean isSameTree(TreeNode p, TreeNode q) {
+  public boolean isSameTree(Node p, Node q) {
     if (p == null && q == null) {
       return true;
     }

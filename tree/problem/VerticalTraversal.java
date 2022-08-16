@@ -1,31 +1,29 @@
 package tree.problem;
 
-import apple.laf.JRSUIUtils.Tree;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.TreeMap;
-import tree.TreeNode;
+import tree.Node;
 
 public class VerticalTraversal {
 
   class Triplet {
-    TreeNode node;
+    Node node;
     int level;
     int xAxis;
 
-    public Triplet(TreeNode node, int level, int xAxis) {
+    public Triplet(Node node, int level, int xAxis) {
       this.node = node;
       this.level = level;
       this.xAxis = xAxis;
     }
   }
 
-  public List<List<Integer>> verticalTraversal(TreeNode root) {
+  public List<List<Integer>> verticalTraversal(Node root) {
 
     // Map Contains X-axis -> LevelOrder -> Value
     Map<Integer, Map<Integer, Queue<Integer>>> cacheTraversal = new TreeMap<>();
@@ -36,7 +34,7 @@ public class VerticalTraversal {
 
     while (!levelOrder.isEmpty()) {
       Triplet triplet = levelOrder.poll();
-      TreeNode node = triplet.node;
+      Node node = triplet.node;
       int nextLevel = triplet.level + 1;
 
       if (!cacheTraversal.containsKey(triplet.xAxis)) {

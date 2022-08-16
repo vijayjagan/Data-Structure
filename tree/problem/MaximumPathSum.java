@@ -1,12 +1,12 @@
 package tree.problem;
 
-import tree.TreeNode;
+import tree.Node;
 
 public class MaximumPathSum {
 
   int maxPath = Integer.MIN_VALUE;
 
-  int maximumPathSum(TreeNode root) {
+  int maximumPathSum(Node root) {
     if (root == null) {
       return 0;
     }
@@ -16,7 +16,7 @@ public class MaximumPathSum {
     return  root.val + Math.max(left, right);
   }
 
-  public int maxPathSum(TreeNode root) {
+  public int maxPathSum(Node root) {
     maximumPathSum(root);
     return maxPath;
   }

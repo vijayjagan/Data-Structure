@@ -3,20 +3,20 @@ package tree.traversal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-import tree.TreeNode;
+import tree.Node;
 
 public class AllOrder {
 
-  public static void printAllOrderTraversal(TreeNode root) {
+  public static void printAllOrderTraversal(Node root) {
     List<Integer> preOrder = new ArrayList<>();
     List<Integer> inOrder = new ArrayList<>();
     List<Integer> postOrder = new ArrayList<>();
-    Stack<TreeNode> stack = new Stack<>();
+    Stack<Node> stack = new Stack<>();
     root.number = 1;
     stack.add(root);
 
     while (!stack.isEmpty()) {
-      TreeNode node = stack.peek();
+      Node node = stack.peek();
       if (node.number == 1) {
         preOrder.add(node.val);
         node.number += 1;
@@ -30,7 +30,7 @@ public class AllOrder {
           stack.add(node.right);
         }
       } else {
-        TreeNode popup = stack.pop();
+        Node popup = stack.pop();
         postOrder.add(popup.val);
       }
     }
