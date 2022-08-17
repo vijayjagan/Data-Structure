@@ -1,10 +1,10 @@
 package tree.problem;
 
-import tree.Node;
+import tree.TreeNode;
 
 public class DepthOfBinaryTree {
 
-  public int maxDepth(Node root) {
+  public int maxDepth(TreeNode root) {
     if (root == null) {
       return 0;
     }

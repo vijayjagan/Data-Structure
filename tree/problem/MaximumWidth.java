@@ -2,22 +2,22 @@ package tree.problem;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import tree.Node;
+import tree.TreeNode;
 
 public class MaximumWidth {
 
   class Pair {
 
-    Node node;
+    TreeNode node;
     int order;
 
-    public Pair(Node node, int order) {
+    public Pair(TreeNode node, int order) {
       this.node = node;
       this.order = order;
     }
   }
 
-  public int widthOfBinaryTree(Node root) {
+  public int widthOfBinaryTree(TreeNode root) {
     if (root == null) {
       return 0;
     }
@@ -31,7 +31,7 @@ public class MaximumWidth {
 
       for (int i = 0; i < size; i++) {
         Pair pair = levelOrder.poll();
-        Node node = pair.node;
+        TreeNode node = pair.node;
 
         if (i == 0) {
           firstNodeIndex = pair.order;

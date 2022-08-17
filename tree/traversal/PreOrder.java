@@ -3,18 +3,18 @@ package tree.traversal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-import tree.Node;
+import tree.TreeNode;
 
 public class PreOrder {
 
-  public List<Integer> preorderTraversal(Node root) {
+  public List<Integer> preorderTraversal(TreeNode root) {
     List<Integer> preOrder = new ArrayList<>();
-    Stack<Node> explicitStack = new Stack<>();
+    Stack<TreeNode> explicitStack = new Stack<>();
     if (root != null) {
       explicitStack.add(root);
     }
     while (!explicitStack.isEmpty()) {
-      Node node = explicitStack.pop();
+      TreeNode node = explicitStack.pop();
       preOrder.add(node.val);
       if (node.right != null) {
         explicitStack.add(node.right);

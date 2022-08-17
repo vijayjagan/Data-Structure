@@ -1,10 +1,11 @@
 package tree.problem;
 
-import tree.Node;
+
+import tree.TreeNode;
 
 public class ChildSumProperty {
 
-  public Node changeToChildSum(Node root) {
+  public TreeNode changeToChildSum(TreeNode root) {
     if (root.left == null && root.right == null) {
       return root;
     }
@@ -16,8 +17,8 @@ public class ChildSumProperty {
       root.val = root.left.val + root.right.val;
     }
 
-    Node leftChild = changeToChildSum(root.left);
-    Node rightChild = changeToChildSum(root.right);
+    TreeNode leftChild = changeToChildSum(root.left);
+    TreeNode rightChild = changeToChildSum(root.right);
 
     if (leftChild != null && rightChild != null) {
       root.val = leftChild.val + rightChild.val;

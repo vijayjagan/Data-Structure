@@ -6,22 +6,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.TreeMap;
-import tree.Node;
+import tree.TreeNode;
 
 public class RightViewOfBinaryTree {
 
   class Pair {
 
-    Node node;
+    TreeNode node;
     int level;
 
-    public Pair(Node node, int level) {
+    public Pair(TreeNode node, int level) {
       this.node = node;
       this.level = level;
     }
   }
 
-  public List<Integer> rightSideView(Node root) {
+  public List<Integer> rightSideView(TreeNode root) {
     if (root == null) {
       return new ArrayList<>();
     }
@@ -31,7 +31,7 @@ public class RightViewOfBinaryTree {
 
     while (!levelOrder.isEmpty()) {
       Pair pair = levelOrder.poll();
-      Node node = pair.node;
+      TreeNode node = pair.node;
 
       int nextLevel = pair.level + 1;
 

@@ -1,10 +1,11 @@
 package tree.problem;
 
-import tree.Node;
+
+import tree.TreeNode;
 
 public class SymmetricTree {
 
-    static boolean isSymmetric (Node var1 , Node var2) {
+    static boolean isSymmetric (TreeNode var1 , TreeNode var2) {
       if (var1 == null && var2 == null) {
         return true;
       }
@@ -15,7 +16,7 @@ public class SymmetricTree {
       boolean right = isSymmetric(var1.right, var2.left);
       return left && right;
     }
-    public boolean isSymmetric(Node root) {
+    public boolean isSymmetric(TreeNode root) {
       return isSymmetric(root.left, root.right);
     }
 }

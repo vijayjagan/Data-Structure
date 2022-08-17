@@ -1,17 +1,17 @@
 package tree.problem;
 
-import tree.Node;
+import tree.TreeNode;
 
 public class BalancedBinaryTree {
 
-  public int maxDepth(Node root) {
+  public int maxDepth(TreeNode root) {
     if (root == null) {
       return 0;
     }
     return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
   }
 
-  public boolean isBalanced(Node root) {
+  public boolean isBalanced(TreeNode root) {
     if (root == null) {
       return true;
     }

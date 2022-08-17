@@ -7,23 +7,23 @@ import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.TreeMap;
-import tree.Node;
+import tree.TreeNode;
 
 public class VerticalTraversal {
 
   class Triplet {
-    Node node;
+    TreeNode node;
     int level;
     int xAxis;
 
-    public Triplet(Node node, int level, int xAxis) {
+    public Triplet(TreeNode node, int level, int xAxis) {
       this.node = node;
       this.level = level;
       this.xAxis = xAxis;
     }
   }
 
-  public List<List<Integer>> verticalTraversal(Node root) {
+  public List<List<Integer>> verticalTraversal(TreeNode root) {
 
     // Map Contains X-axis -> LevelOrder -> Value
     Map<Integer, Map<Integer, Queue<Integer>>> cacheTraversal = new TreeMap<>();
@@ -34,7 +34,7 @@ public class VerticalTraversal {
 
     while (!levelOrder.isEmpty()) {
       Triplet triplet = levelOrder.poll();
-      Node node = triplet.node;
+      TreeNode node = triplet.node;
       int nextLevel = triplet.level + 1;
 
       if (!cacheTraversal.containsKey(triplet.xAxis)) {

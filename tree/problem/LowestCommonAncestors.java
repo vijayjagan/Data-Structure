@@ -1,16 +1,17 @@
 package tree.problem;
 
-import tree.Node;
+
+import tree.TreeNode;
 
 public class LowestCommonAncestors {
 
 
-  public Node lowestCommonAncestor(Node root, Node p, Node q) {
+  public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
     if (root == null || root.val == p.val || root.val == q.val) {
       return root;
     }
-    Node left = lowestCommonAncestor(root.left, p, q);
-    Node right = lowestCommonAncestor(root.right, p, q);
+    TreeNode left = lowestCommonAncestor(root.left, p, q);
+    TreeNode right = lowestCommonAncestor(root.right, p, q);
 
     if (left == null ) {
       return right;

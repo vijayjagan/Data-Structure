@@ -9,21 +9,21 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
-import tree.Node;
+import tree.TreeNode;
 
 public class NodesAtKDistance {
 
-  static void storeParentInMap(Map<Node, Node> parentMap, Node root) {
+  static void storeParentInMap(Map<TreeNode, TreeNode> parentMap, TreeNode root) {
     if (root == null) {
       return;
     }
-    Queue<Node> levelOrder = new LinkedList<>();
+    Queue<TreeNode> levelOrder = new LinkedList<>();
     levelOrder.offer(root);
 
     while (!levelOrder.isEmpty()) {
       int size = levelOrder.size();
       for (int i = 0; i < size; i++) {
-        Node node = levelOrder.poll();
+        TreeNode node = levelOrder.poll();
         if (node.left != null) {
           parentMap.put(node.left, node);
           levelOrder.offer(node.left);
@@ -36,11 +36,11 @@ public class NodesAtKDistance {
     }
   }
 
-  public List<Integer> distanceK(Node root, Node target, int k) {
-    Set<Node> visitedNode = new HashSet<>();
-    Map<Node, Node> parentMap = new HashMap<>();
+  public List<Integer> distanceK(TreeNode root, TreeNode target, int k) {
+    Set<TreeNode> visitedNode = new HashSet<>();
+    Map<TreeNode, TreeNode> parentMap = new HashMap<>();
     storeParentInMap(parentMap, root);
-    Queue<Node> levelOrder = new LinkedList<>();
+    Queue<TreeNode> levelOrder = new LinkedList<>();
     if (target == null) {
       return Collections.emptyList();
     }
@@ -56,8 +56,8 @@ public class NodesAtKDistance {
       }
 
       for (int i = 0; i < size; i++) {
-        Node node = levelOrder.poll();
-        Node parent = parentMap.getOrDefault(node, null);
+        TreeNode node = levelOrder.poll();
+        TreeNode parent = parentMap.getOrDefault(node, null);
 
         if (node.left != null && !visitedNode.contains(node.left)) {
           visitedNode.add(node.left);
