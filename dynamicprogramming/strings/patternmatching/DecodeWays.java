@@ -3,9 +3,9 @@ package dynamicprogramming.strings.patternmatching;
 public class DecodeWays {
 
   /**
-   * Below Problem its similar to Unique Paths (LeetCode 62). In which way its is similar to
+   * Below Problem, it's similar to Unique Paths (LeetCode 62). In which way its is similar to
    * UniquePath sum In Unique Path target is to move from 0,0 index to m X n index , Once we reach
-   * the last row and column we count the numberOf Ways to 1. Similary once we decoded the string at
+   * the last row and column we count the numberOf Ways to 1. Similar once we decoded the string at
    * the end we count the number of ways to 1
    * <p>
    * <p>
