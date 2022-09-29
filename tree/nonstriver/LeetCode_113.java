@@ -19,10 +19,6 @@ public class LeetCode_113 {
       return;
     }
 
-    if (target - root.val < 0) {
-      return;
-    }
-
     rootToCurrent.add(root.val);
     pathSum(root.left, target, sum + root.val, rootToCurrent, path);
     pathSum(root.right, target, sum + root.val, rootToCurrent, path);
