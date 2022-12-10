@@ -7,52 +7,54 @@ public class LeetCode_1000 {
 
   public static int mergeStones(int[] stones, int K) {
     int l = stones.length;
-    if (l == 1) return 0;
-    if (K > l) return - 1;
-    if ((stones.length - 1) % (K - 1) != 0) return -1;
+    if (l == 1) {
+      return 0;
+    }
+    if (K > l) {
+      return -1;
+    }
+    if ((stones.length - 1) % (K - 1) != 0) {
+      return -1;
+    }
 
     int[][] dp = new int[l][l];
     int[] preSum = new int[l];
 
-    for (int i = 0; i < l; i++) preSum[i] = ((i == 0 ? 0 : preSum[i - 1]) + stones[i]);
+    for (int i = 0; i < l; i++) {
+      preSum[i] = ((i == 0 ? 0 : preSum[i - 1]) + stones[i]);
+    }
 
     return mergingFromBottom(0, stones.length - 1, K, preSum, dp);
   }
 
-  private static int mergingFromBottom(int start, int end, int k, int[] preSum, int[][] dp) {
-    if (start > end)  {
+  private static int mergingFromBottom(int left, int right, int k, int[] preSum, int[][] dp) {
+    if (left >= right) {
       return 0;
     }
-    int length = end - start + 1;
 
-    if (length < k) {
-      return 0;
-    }
-    if (length == k) {
-      return preSum[end] - (start == 0 ? 0 : preSum[start - 1]);
-    }
-
-    if (dp[start][end] != 0) {
-      return dp[start][end];
+    if (dp[left][right] != 0) {
+      return dp[left][right];
     }
 
     int min = Integer.MAX_VALUE;
-    for (int i = start; i < end; i += k - 1) {
-      int leftPartition = mergingFromBottom(start, i, k, preSum, dp);
-      int rightPartition = mergingFromBottom(i + 1, end, k, preSum, dp);
-      min = Math.min(min, leftPartition + rightPartition);
+    // k - 1 Since all the value is merged to one, that's the reason for k - 1
+    // K piles will be merged and k - 1 index is the merged index
+    for (int i = left; i < right; i += k - 1) {
+      int mergeCost = 0;
+      if ((right - left) % (k - 1) == 0) {
+        mergeCost = preSum[right] - (left == 0 ? 0 : preSum[left - 1]);
+      }
+      int leftPartition = mergingFromBottom(left, i, k, preSum, dp);
+      int rightPartition = mergingFromBottom(i + 1, right, k, preSum, dp);
+      min = Math.min(min, leftPartition + rightPartition + mergeCost);
     }
 
-    if ((length - 1) % (k - 1) == 0) {
-      min += preSum[end] - (start == 0 ? 0 : preSum[start - 1]);
-    }
-
-    return dp[start][end] = min;
+    return dp[left][right] = min;
   }
 
 
   public static void main(String[] args) {
-    int[] stones = {3,2,4};
-    System.out.println(mergeStones(stones, 2));
+    int[] stones = {3, 5, 2, 1, 6};
+    System.out.println(mergeStones(stones, 3));
   }
 }

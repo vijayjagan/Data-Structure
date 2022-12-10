@@ -14,11 +14,11 @@ public class MatrixChainMultiplication {
     }
     int min = Integer.MAX_VALUE;
     for (int i = leftPointer; i < rightPointer; i++) {
+      int currentComputation = arr[leftPointer - 1] * arr[i] * arr[rightPointer];
       // Freeze the LeftPointer since it's expanding in Righ-hand side
       int leftPartition = matrixMultiplication(leftPointer, i, arr, dp);
       // Freeze the RightPointer since it's shrinking from Left-Hand side
       int rightPartition = matrixMultiplication(i + 1, rightPointer, arr, dp);
-      int currentComputation = arr[leftPointer - 1] * arr[i] * arr[rightPointer];
       min = Math.min(min, currentComputation + leftPartition + rightPartition);
     }
     return dp[leftPointer][rightPointer] = min;
@@ -52,7 +52,7 @@ public class MatrixChainMultiplication {
   }
 
   public static void main(String[] args) {
-    int[] n = {10, 30, 5, 60};
+    int[] n = {5, 10, 20, 10, 7};
     System.out.println(matrixMultiplication(n.length, n));
   }
 
